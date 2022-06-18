@@ -1,25 +1,25 @@
 import Head from 'next/head'
 import Image from 'next/Image'
+import Link from 'next/link'
 import styles from '../styles/Home.module.css'
 import { createClient } from "next-sanity";
 import PortableText from "react-portable-text"
 import Script from "next/script"
 import { useEffect } from 'react';
 export default function Home({ blogs }) {
-import imageUrlBuilder from '@sanity/image-url'
-import Link from 'next/link'
+// import imageUrlBuilder from '@sanity/image-url'
 
-const client = createClient({
-  projectId: "3synp310",
-  dataset: "production",
-  useCdn: false
-});
-const builder = imageUrlBuilder(client)
+// const client = createClient({
+//   projectId: "3synp310",
+//   dataset: "production",
+//   useCdn: false
+// });
+// const builder = imageUrlBuilder(client)
 
-useEffect(() => {
-  console.log("thsnks") 
+// useEffect(() => {
+//   console.log("thsnks") 
   
-}, [])
+// }, [])
   
   return (
     <><>
