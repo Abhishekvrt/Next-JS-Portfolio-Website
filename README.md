@@ -29,6 +29,7 @@ Install [npm] - we need a package manager. in this project we will use yarn and 
 ```bash
 npm install 
 ```
+If you are getting a NPM ERR! - don't stop.. run next command in terminal
 ```
 npm install -g yarn
 ```
