@@ -1,4 +1,4 @@
-# Portfolio-Website
+# Next-JS-Portfolio-Website
 
 ## Contribute
 We're glad that you want to contribute! 
@@ -16,36 +16,36 @@ To use this repository and to Run this website on your local device, follow the 
 Clone the repo to your local device: 
 
 ```bash
-   git clone https://github.com/Abhishekvrt/Next-JS-Portfolio-Website.git 
+git clone https://github.com/Abhishekvrt/Next-JS-Portfolio-Website.git 
 ```
 ### For Running Frontend on Local Device
 first you have to change directory to Nextfrontend
 
 ```bash
-   cd Nextfrontend
+cd Nextfrontend
 ```
 Install [npm] - we need a package manager. in this project we will use yarn and for installation follow these instructions (https://www.npmjs.com/)
 
 ```bash
-    npm install 
+npm install 
 ```
 ```
-    npm install -g yarn
+npm install -g yarn
 ```
 #### yarn All dependencies are installed using yarn.
 
 ```bash
-    yarn 
+yarn 
 ```
 install dev function if you are getting an error while running yarn dev
 
 ```bash
-    yarn add - -dev
+yarn add - -dev
 ```
 Now run yarn dev to run the project
 
 ```bash
-    yarn dev
+yarn dev
 ```
 
 And then open up your web browser and go to [localhost:3000](http://localhost:3000).
