@@ -16,7 +16,7 @@ To use this repository and to Run this website on your local device, follow the 
 Clone the repo to your local device: 
 
 ```bash
-   https://github.com/Abhishekvrt/Next-JS-Portfolio-Website.git 
+   git clone https://github.com/Abhishekvrt/Next-JS-Portfolio-Website.git 
 ```
 ### For Running Frontend on Local Device
 first you have to change directory to Nextfrontend
