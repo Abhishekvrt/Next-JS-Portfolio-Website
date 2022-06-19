@@ -1,46 +1,56 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Contribute
+We're glad that you want to contribute! 
+A first step to contributing is to start with something you think you can add value in the community. Ask in community, We always Welcome new Contributors.
+### How to file an issue 
+Not ready to contribute code, but see something that needs work? While the community encourages everyone to contribute code, it is also appreciated when someone reports an issue.
+Make sure to adhere to the prompted submission guidelines while opening an issue. 
+
+### How to open a pull request
+We recommend open an issue before editing and Pulling request. If you don't know "How to open a Pull request" We refer you to [this resource](https://opensource.com/article/19/7/create-pull-request-github)
+
+## Prerequisites
+To use this repository and to Run this website on your local device, follow the below steps:
+
+Clone the repo to your local device: 
 
 ```bash
-    cd Nextfrontend
-    
+   https://github.com/Abhishekvrt/Next-JS-Portfolio-Website.git 
+```
+
+```bash
+   cd Nextfrontend
+```
+Install [npm](https://www.npmjs.com/)
+
+```bash
+    npm install 
+```
+```
     npm install -g yarn
+```
 
-    yarn
+```bash
+    yarn 
+```
 
+```bash
     yarn add - -dev
+```
 
+```bash
     yarn dev
 ```
 
-## Getting Started
+And then open up your web browser and go to [localhost:3000](http://localhost:3000).
 
-First, run the development server:
+## Find something to work on
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+The first step to getting started contributing to this project is to find something to work on. Help is always welcome, and no contribution is too small!
+Become a part of the Kubesimplify community by contributing. All types of contributions are allowed (code contributions, docs contributions, and community contributions too).
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Here are some things you can do today to get started contributing:
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+1. Help improve the Kubesimplify documentation
+2. Clarify code, variables, or functions that can be renamed or commented on
+3. Write test coverage
+4. Help triage issues
