@@ -20,7 +20,9 @@ git clone https://github.com/Abhishekvrt/Next-JS-Portfolio-Website.git
 ```
 ### For Running Frontend on Local Device
 first you have to change directory to Nextfrontend
-
+```bash
+cd Next-JS-Portfolio-Website
+```
 ```bash
 cd Nextfrontend
 ```
