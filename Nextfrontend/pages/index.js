@@ -1,25 +1,30 @@
 import Head from 'next/head'
-import Image from 'next/Image'
-import Link from 'next/link'
+import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import { createClient } from "next-sanity";
-import PortableText from "react-portable-text"
+
 import Script from "next/script"
 import { useEffect } from 'react';
-export default function Home({ blogs }) {
-// import imageUrlBuilder from '@sanity/image-url'
+import imageUrlBuilder from '@sanity/image-url'
+import Link from 'next/link'
+import NavBar from '../components/NavBar';
 
-// const client = createClient({
-//   projectId: "3synp310",
-//   dataset: "production",
-//   useCdn: false
-// });
-// const builder = imageUrlBuilder(client)
-
-// useEffect(() => {
-//   console.log("thsnks") 
+export default function Home({ blogs, profile}) {
+  const client = createClient({
+    projectId: "3synp310",
+    dataset: "production",
+    useCdn: false
+  });
+  const builder = imageUrlBuilder(client)
+  // const profile = {
+  //   title: "WorkWithHarry",
+  //   name: "Harry",
+  //   image: "https://insanebiography.com/wp-content/uploads/codewithharry_108099807_133124151765153_6863548870509034899_n-min-edited.jpg",
+  //   fbLink: "https://facebook.com/codewithharry",
+  //   twitterLink: "https://twitter.com/codewithharry",
+  //   instagramLink: "https://instagram.com/codewithharry",
+  // }
   
-// }, [])
   
   return (
     <><>
@@ -33,7 +38,7 @@ export default function Home({ blogs }) {
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
           name="viewport" />
 
-        <title>Abhishek Portfolio</title>
+        <title>{profile.title} - Developer | Coder | Software Geek</title>
 
         <meta property="og:title" content="Homepage | Atom Template" />
 
@@ -95,12 +100,13 @@ export default function Home({ blogs }) {
         <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
 
-      </Head>
-      <div className="w-full z-50 top-0 py-3 sm:py-5  absolute ">
+      </Head> 
+      <NavBar profile={profile} />
+      {/* <div className="w-full z-50 top-0 py-3 sm:py-5  absolute ">
         <div className="container flex items-center justify-between">
           <div>
             <a href="/">
-              <img src="/assets/img/clusterCommunity.png" className="w-24 lg:w-24" alt="logo image" />
+             <h2 className='text-white text-2xl font-bold'>{profile.title}</h2>
             </a>
           </div>
           <div className="hidden lg:block">
@@ -178,7 +184,7 @@ export default function Home({ blogs }) {
             </button>
           </div>
         </div>
-      </div>
+      </div> */}
       <div
         className="pointer-events-none fixed inset-0 z-70 min-h-screen bg-black bg-opacity-70 opacity-0 transition-opacity lg:hidden" /> 
       <div className="hidden absolute right-0 min-h-screen w-2/3 bg-primary py-4 px-8 shadow md:w-1/3">
@@ -255,35 +261,40 @@ export default function Home({ blogs }) {
         <div className="container relative z-30 pt-20 pb-12 sm:pt-56 sm:pb-48 lg:pt-64 lg:pb-48">
           <div className="flex flex-col items-center justify-center lg:flex-row">
             <div className="rounded-full border-8 border-primary shadow-xl">
-              <img src="/assets/img/abhi_profile.jpg" className="h-48 rounded-full sm:h-56" alt="author" />
+              <img src={builder.image(profile.image).width(200).url()} className="h-48 rounded-full sm:h-56" alt="author" />
             </div>
             <div className="pt-8 sm:pt-10 lg:pl-8 lg:pt-0">
               <h1 className="text-center font-header text-4xl text-white sm:text-left sm:text-5xl md:text-6xl">
-                Hello, I'm Abhishek!
+                Hello I'm {profile.name}!
               </h1>
               <div className="flex flex-col justify-center pt-3 sm:flex-row sm:pt-5 lg:justify-start">
                 <div className="flex items-center justify-center pl-0 sm:justify-start md:pl-1">
-                  <p className="font-body text-lg uppercase text-white">Connect on Socials</p>
+                  <p className="font-body text-lg uppercase text-white">Let's connect</p>
                   <div className="hidden sm:block">
                     <i className="bx bx-chevron-right text-3xl text-yellow"></i>
                   </div>
                 </div>
                 <div className="flex items-center justify-center pt-5 pl-2 sm:justify-start sm:pt-0">
-                  
-                  <a href="https://twitter.com/Abhishekvrt" className="pl-4">
+                  <a href={profile.fbLink}>
+                    <i className="bx bxl-facebook-square text-2xl text-white hover:text-yellow"></i>
+                  </a>
+                  <a href={profile.twitterLink} className="pl-4">
                     <i className="bx bxl-twitter text-2xl text-white hover:text-yellow"></i>
                   </a>
-                  <a href="https://github.com/Abhishekvrt" className="pl-4">
-                    <i className="bx bxl-github text-2x1 text-white hover:text-yellow"></i>
+                  <a href="/" className="pl-4">
+                    <i className="bx bxl-dribbble text-2xl text-white hover:text-yellow"></i>
                   </a>
-                  <a href="https://www.linkedin.com/in/abhishekvrt/" className="pl-4">
+                  <a href="/" className="pl-4">
                     <i className="bx bxl-linkedin text-2xl text-white hover:text-yellow"></i>
                   </a>
-                  <a href="https://www.instagram.com/abhishekvrt/" className="pl-4">
+                  <a href={profile.instagramLink} className="pl-4">
                     <i className="bx bxl-instagram text-2xl text-white hover:text-yellow"></i>
                   </a>
                 </div>
               </div>
+                <Link href={'/blogs'}><div className="buttons text-center md:text-left">
+                  <button className='bg-purple-600 text-white border-2 px-4 py-1 my-4 rounded-2xl'>All Blogs</button>
+                </div></Link>
             </div>
           </div>
         </div>
@@ -291,7 +302,7 @@ export default function Home({ blogs }) {
 
       <div className="bg-grey-50" id="about">
         <div className="container flex flex-col items-center py-16 md:py-20 lg:flex-row">
-          <div className="w-full text-center sm:w-3/4 lg:w-3/5 lg:text-center">
+          <div className="w-full text-center sm:w-3/4 lg:w-3/5 lg:text-left">
             <h2 className="font-header text-4xl font-semibold uppercase text-primary sm:text-5xl lg:text-6xl">
               Who am I?
             </h2>
@@ -299,9 +310,15 @@ export default function Home({ blogs }) {
               I'm Christy Smith, a Web Designer & Photographer
             </h4>
             <p className="pt-6 font-body leading-relaxed text-grey-20">
-              Hello all, my name is Saiyam Pathak and I am currently working as a Director of technical evangelism at Civo. I work primarily on Kubernetes and its surrounding projects from the CNCF landscape. I like to keep learning new stuff, interact with the community and teach people my learning via my YouTube videos. In this post, I will explain how Kubesimplify originated, where we are now, where we are headed and how you can be a part of it.
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+              veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+              commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+              occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+              mollit anim id est laborum.
             </p>
-            <div className="flex flex-col justify-center pt-6 sm:flex-row lg:justify-end">
+            <div className="flex flex-col justify-center pt-6 sm:flex-row lg:justify-start">
               <div className="flex items-center justify-center sm:justify-start">
                 <p className="font-body text-lg font-semibold uppercase text-grey-20">
                   Connect with me
@@ -311,23 +328,25 @@ export default function Home({ blogs }) {
                 </div>
               </div>
               <div className="flex items-center justify-center pt-5 pl-2 sm:justify-start sm:pt-0">
-                
-                <a href="https://twitter.com/Abhishekvrt" className="pl-4">
+                <a href="/">
+                  <i className="bx bxl-facebook-square text-2xl text-primary hover:text-yellow"></i>
+                </a>
+                <a href="/" className="pl-4">
                   <i className="bx bxl-twitter text-2xl text-primary hover:text-yellow"></i>
                 </a>
-                <a href="https://github.com/Abhishekvrt" className="pl-4">
-                  <i className="bx bxl-github text-2xl text-primary hover:text-yellow"></i>
+                <a href="/" className="pl-4">
+                  <i className="bx bxl-dribbble text-2xl text-primary hover:text-yellow"></i>
                 </a>
-                <a href="https://www.linkedin.com/in/abhishekvrt/" className="pl-4">
+                <a href="/" className="pl-4">
                   <i className="bx bxl-linkedin text-2xl text-primary hover:text-yellow"></i>
                 </a>
-                <a href="https://www.instagram.com/abhishekvrt/" className="pl-4">
+                <a href="/" className="pl-4">
                   <i className="bx bxl-instagram text-2xl text-primary hover:text-yellow"></i>
                 </a>
               </div>
             </div>
           </div>
-          {/* <div className="w-full pl-0 pt-10 sm:w-3/4 lg:w-2/5 lg:pl-12 lg:pt-0">
+          <div className="w-full pl-0 pt-10 sm:w-3/4 lg:w-2/5 lg:pl-12 lg:pt-0">
             <div>
               <div className="flex items-end justify-between">
                 <h4 className="font-body font-semibold uppercase text-black">
@@ -368,7 +387,7 @@ export default function Home({ blogs }) {
                 <div className="h-3 rounded-full bg-primary" style={{ "width": "91%" }}></div>
               </div>
             </div>
-          </div> */}
+          </div>
         </div>
       </div>
 
@@ -753,7 +772,7 @@ export default function Home({ blogs }) {
               </div></div>
             </Link>
              })}
-            <a href="/post" className="shadow">
+            {/* <a href="/post" className="shadow">
               <div style={{"backgroundImage": "url(/assets/img/post-02.png)"}}
                 className="group relative h-72 bg-cover bg-center bg-no-repeat sm:h-84 lg:h-64 xl:h-72">
                 <span
@@ -784,7 +803,7 @@ export default function Home({ blogs }) {
                   elit, sed do
                   eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
               </div>
-            </a>
+            </a> */}
           </div>
         </div>
       </div>
@@ -905,14 +924,14 @@ export default function Home({ blogs }) {
           </div>
         </div></></>
      
-     // <div className="home mx-8">
-     //   <h1>{blogs[0].title}</h1>
-     //   <div className="mx-8">
-     
+    // <div className="home mx-8">
+    //   <h1>{blogs[0].title}</h1>
+    //   <div className="mx-8">
+
     //   <PortableText
     //   // Pass in block content straight from Sanity.io
     //   content={blogs[0].content}
-    //   projectId = "iytovi01"
+    //   projectId = "3synp310"
     // dataset = "production"
     //   // Optionally override marks, decorators, blocks, etc. in a flat
     //   // structure without doing any gymnastics
@@ -927,18 +946,23 @@ export default function Home({ blogs }) {
   )
 }
 
+
 export async function getServerSideProps(context) {
   const client = createClient({
     projectId: "3synp310",
-    dataset: "production",
+    dataset: "production",  
     useCdn: false
   });
-  const query = `*[_type == "blog"][0...5]`;
+  const query = `*[_type == "blog"][0...3]`;
   const blogs = await client.fetch(query);
-  console.log(blogs.length)
+
+  const profileQuery = `*[_type == "profile"][0]`;
+  const profile = await client.fetch(profileQuery);
+
   return {
     props: {
-      blogs
+      blogs,
+      profile
     }
   }
 }
